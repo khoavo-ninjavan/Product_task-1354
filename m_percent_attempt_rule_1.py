@@ -4,6 +4,8 @@ from datetime import datetime,timedelta
 import numpy as np
 pd.set_option('display.max_columns', None)
 
+# rule 1 : ít nhất 1 attempt sớm => attempt soon
+
 list_call_log = glob.glob(r'D:\rerun_5\data\pdt\alo2_call*.pq')
 list_event = glob.glob(r'D:\rerun_5\data\pdt\deli_*.pq')
 
@@ -56,6 +58,8 @@ for event,call_log in raw.items():
     soon_attempt += len(full[full.is_att_sync_soon == 1])
     late_attempt += len(full[full.is_att_sync_soon == 0])
     total_attempt += len(full)
+
+percent_soon_attempt = soon_attempt / total_attempt
 
     
 
